@@ -852,7 +852,7 @@ jobs:
       - name: Determine source and destination tags
         id: tags
         run: |
-          DOCKERHUB_IMAGE="openwebui/open-webui"
+          DOCKERHUB_IMAGE="korewks/open-webui-buildtest"
           SUFFIX="${{ matrix.suffix }}"
 
           if [[ "${{ github.ref }}" == refs/tags/v* ]]; then

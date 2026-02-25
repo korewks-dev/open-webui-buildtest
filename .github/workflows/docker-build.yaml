@@ -118,7 +118,9 @@ jobs:
     steps:
       - name: Set GHCR package to private
         run: |
-          PACKAGE_NAME="${GITHUB_REPOSITORY,,}"
+          PACKAGE_NAME="${GITHUB_REPOSITORY##*/}"
+          PACKAGE_NAME="${PACKAGE_NAME,,}"
+          
           curl -X PATCH \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github+json" \
